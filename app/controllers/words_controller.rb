@@ -37,6 +37,25 @@ class WordsController < ApplicationController
     @word = Word.find(params[:id])
   end
 
+  #called when GET /auto_create?content=fabulouse&meaning=greate
+  def auto_create
+	h={}
+	h[:meaning] = params[:meaning]
+	h[:content] = params[:content]
+	
+	#parameters has more attributes than needed , for example , :action
+    @word = Word.new(h)
+    respond_to do |format|
+      if @word.save
+        format.html { redirect_to(@word, :notice => 'Word was successfully created.') }
+        format.xml  { render :xml => @word, :status => :created, :location => @word }
+      else
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @word.errors, :status => :unprocessable_entity }
+      end
+	end
+  end
+
   # POST /words
   # POST /words.xml
   def create
