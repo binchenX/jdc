@@ -8,13 +8,13 @@
 // @require       http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js
 // @license       GPL version 3 or any later version; http://www.gnu.org/copyleft/gpl.html
 // @license       Creative Commons; http://creativecommons.org/licenses/by-nc-nd/3.0/
-// @version       0.0.5
+// @version       0.0.6
 // ==/UserScript==
 
 
 function debug (msg)
 {
-	alert(msg)
+	//alert(msg)
 }
 
 
