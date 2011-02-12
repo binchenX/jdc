@@ -3,8 +3,6 @@ Jdcc::Application.routes.draw do
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
-
-
   match 'auto_create'  => 'words#auto_create'
 
   # Sample of regular route:

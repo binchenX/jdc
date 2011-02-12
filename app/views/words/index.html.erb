@@ -1,10 +1,10 @@
-<h1>Listing words</h1>
+<h1>words</h1>
 
 <table>
   <tr>
-    <th>Content</th>
-    <th>Example</th>
-    <th>Meaning</th>
+    <th>word</th>
+    <th>example</th>
+    <th>meaning</th>
     <th></th>
     <th></th>
     <th></th>
@@ -15,9 +15,9 @@
     <td><%= word.content %></td>
     <td><%= word.example %></td>
     <td><%= word.meaning %></td>
-    <td><%= link_to 'Show', word %></td>
-    <td><%= link_to 'Edit', edit_word_path(word) %></td>
-    <td><%= link_to 'Destroy', word, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'S', word %></td>
+    <td><%= link_to 'E', edit_word_path(word) %></td>
+    <td><%= link_to 'D', word_path(word), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
