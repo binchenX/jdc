@@ -12,6 +12,12 @@
 // ==/UserScript==
 
 
+function debug (msg)
+{
+	alert(msg)
+}
+
+
 function getSelText()
 {
     var txt = '';
@@ -32,10 +38,45 @@ function getSelText()
 	return txt
 }
 
+function containsOnlyLetters(checkString) {
+        var tempString="";
+        var pattern = /^[A-Za-z]$/;
+        if(checkString != null && checkString != "")
+        {
+          for(var i = 0; i < checkString.length; i++)
+          {
+			debug(checkString.charAt(i)); 
+            //equals each_char is ruby1.9 , not each_byte
+			if (!checkString.charAt(i).match(pattern))
+            {
+              return false;
+            }
+          }
+        }
+        else
+        {
+          return false;
+        }
+        return true;
+}
 function saveSelText()
 {
-	var selText = getSelText()
-	console.log("seletct");
+
+    //getSelText returns an DOM string instead of java script string
+	var selText = getSelText().toString();
+	//validate the select should only contains a-zA-Z
+	if ( !containsOnlyLetters(selText))
+	{
+		debug("non-english selected ->" + selText);
+		return;
+	}
+	
+	if ((selText.length > 20) || (selText.length < 3) )
+	{
+		debug('unreasonable length ->' + selText.length);
+		return;
+	}
+	
 	if (selText != "")
 	{
 	 	//var url = "http://localhost:3000/auto_create?content="+getSelText();
@@ -48,7 +89,7 @@ function saveSelText()
 		$.ajax({
 		type: 'GET',
 		url:	url, 
-		data: { 'content': getSelText()},
+		data: { 'content': selText},
 		dataType: 'jsonp',
 		jsonp:'jsonp_callback',
 		success: function(data) {
