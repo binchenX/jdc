@@ -1,6 +1,5 @@
-<h1>words</h1>
 
-<table>
+<table id="wordlist">
   <tr>
     <th>word</th>
     <th>example</th>
@@ -15,7 +14,6 @@
     <td><%= word.content %></td>
     <td><%= word.example %></td>
     <td><%= word.meaning %></td>
-    <td><%= link_to 'S', word %></td>
     <td><%= link_to 'E', edit_word_path(word) %></td>
     <td><%= link_to 'D', word_path(word), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
