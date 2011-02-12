@@ -8,7 +8,7 @@
 // @require       http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js
 // @license       GPL version 3 or any later version; http://www.gnu.org/copyleft/gpl.html
 // @license       Creative Commons; http://creativecommons.org/licenses/by-nc-nd/3.0/
-// @version       0.0.4
+// @version       0.0.5
 // ==/UserScript==
 
 
@@ -39,8 +39,11 @@ function saveSelText()
 	if (selText != "")
 	{
 	 	//var url = "http://localhost:3000/auto_create?content="+getSelText();
-	 	var url = "http://localhost:3000/auto_create";
-         	//this will generate a 1002 error due to cross domain
+	 	var domain = "http://jdc.heroku.com"
+	 	//var domain = "http://localhost:3000"
+		var url = domain + "/auto_create";
+       	
+		//this will generate a 1002 error due to cross domain
 		//$.get(url,{},false);
 		$.ajax({
 		type: 'GET',
