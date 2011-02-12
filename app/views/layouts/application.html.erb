@@ -25,12 +25,30 @@ function getSelText()
         txt = document.selection.createRange().text;
             }
     else return;
+	//debug only
 	document.aform.selectedtext.value =  txt;
-	//let's issue a  GET using jqeury
- 	var url = "http://localhost:3000/auto_create?content="+txt;
-    $.get(url,{},false);
-    
+	return txt
 }
+
+function saveSelText()
+{
+	var selText = getSelText()
+	if (selText != "")
+	{
+	 	var url = "http://localhost:3000/auto_create?content="+getSelText();
+    	$.get(url,{},false);
+	}
+}
+
+$(document).ready(function(){
+	$(document).mouseup(function(){
+		//alert('Handler for .mouseup called.');
+		saveSelText()
+	})
+
+})
+//when anything is selected , save it to the website
+
 </script>
 <input type="button" value="Get selection and save  it" onmousedown="getSelText()"> 
 <form name=aform >
