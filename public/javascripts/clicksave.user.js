@@ -8,7 +8,7 @@
 // @require       http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js
 // @license       GPL version 3 or any later version; http://www.gnu.org/copyleft/gpl.html
 // @license       Creative Commons; http://creativecommons.org/licenses/by-nc-nd/3.0/
-// @version       0.0.5
+// @version       0.0.7
 // ==/UserScript==
 
 
@@ -94,12 +94,12 @@ function saveSelText()
 	//starNode = selRange.startContainer;	
 	//endNode  = selRange.endContainer;	
 	
-	alert(context);
+	debug(context);
 	//OK. let's split the sentence and select the
 	//split the context to several sentences and choose the sentence that contains the words
 	var r = context.split(/\.|\?|\!/).filter(function(x){
 			//use jquery's utility function 
-			alert("setence_each:" + x);
+			debug("setence_each:" + x);
 			if ($.inArray(selText, x.split(" ")) != -1)
 			{ 
 				return true;
@@ -131,7 +131,7 @@ function saveSelText()
 		dataType: 'jsonp',
 		jsonp:'jsonp_callback',
 		success: function(data) {
-			alert(data);
+			//alert(data);
 		},
 	});
 	}

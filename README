@@ -1,6 +1,4 @@
-Save the words online for later revisit by double click.
+The host site for clicksave (https://github.com/pierrchen/clicksave).
+New words ,with examples, will be saved here when reading articles on the internet.
 
-1. install https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/
-2. install http://userscripts.org/scripts/show/96771
-3. Use Firefox to open the website
-4. double click the words, and it will be saved at jdc.heroku.com
+visit : jdc.heroku.com
