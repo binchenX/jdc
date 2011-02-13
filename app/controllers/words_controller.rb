@@ -40,8 +40,9 @@ class WordsController < ApplicationController
   #called when GET /auto_create?content=fabulouse&meaning=greate
   def auto_create
 	h={}
-	h[:meaning] = params[:meaning]
+	#h[:meaning] = params[:meaning]
 	h[:content] = params[:content]
+	h[:example] = params[:example]
 	
 	#parameters has more attributes than needed , for example , :action
     @word = Word.new(h)
